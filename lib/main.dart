@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-// ignore: unused_import
 import 'package:flutter/services.dart';
 
 void main() {
@@ -22,12 +21,20 @@ class MyApp extends StatelessWidget {
         ),
         body: Container(
             margin: EdgeInsets.all(8),
-            child: TextFormField(
-              cursorColor: Colors.black,
-              decoration: new InputDecoration(
-                  contentPadding:
-                      EdgeInsets.only(left: 15, bottom: 11, top: 11, right: 15),
-                  hintText: "Masukkan Suhu dalam Celcius"),
+            child: Column(
+              children: [
+                TextFormField(
+                  cursorColor: Colors.black,
+                  keyboardType: TextInputType.number,
+                  inputFormatters: <TextInputFormatter>[
+                    FilteringTextInputFormatter.digitsOnly
+                  ],
+                  decoration: new InputDecoration(
+                      contentPadding: EdgeInsets.only(
+                          left: 15, bottom: 11, top: 11, right: 15),
+                      hintText: "Masukkan Suhu dalam Celcius"),
+                ),
+              ],
             )),
       ),
     );
