@@ -63,12 +63,14 @@ class _MyAppState extends State<MyApp> {
                         ),
                       ),
                       Container(
-                        margin: EdgeInsets.fromLTRB(0, 10, 50, 0),
-                        child: Text(
-                          "$kelvin",
-                          style: TextStyle(color: Colors.black, fontSize: 15, ),
-                        ),
-                      )
+                          margin: EdgeInsets.fromLTRB(0, 10, 50, 0),
+                          child: Text(
+                            "$kelvin",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 30,
+                                fontWeight: FontWeight.bold),
+                          ))
                     ]),
                     Column(children: [
                       Container(
@@ -82,16 +84,19 @@ class _MyAppState extends State<MyApp> {
                         margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
                         child: Text(
                           "$reamur",
-                          style: TextStyle(color: Colors.black, fontSize: 15),
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold),
                         ),
                       )
                     ])
                   ]),
               Flexible(
                 child: Container(
-                  padding: EdgeInsets.fromLTRB(0, 350, 0, 0),
+                  padding: EdgeInsets.fromLTRB(0, 340, 0, 0),
                   width: 380.0,
-                  height: 399.0,
+                  height: 380.0,
                   child: RaisedButton(
                       color: Colors.blue[400],
                       elevation: 6.0,
