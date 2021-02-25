@@ -51,65 +51,6 @@ class _MyAppState extends State<MyApp> {
                         left: 15, bottom: 11, top: 11, right: 15),
                     hintText: "Masukkan Suhu dalam Celcius"),
               ),
-              Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: <Widget>[
-                    Column(children: [
-                      Container(
-                        margin: EdgeInsets.fromLTRB(0, 200, 50, 0),
-                        child: Text(
-                          "Suhu Dalam Kelvin",
-                          style: TextStyle(color: Colors.black, fontSize: 15),
-                        ),
-                      ),
-                      Container(
-                          margin: EdgeInsets.fromLTRB(0, 10, 50, 0),
-                          child: Text(
-                            "$kelvin",
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 30,
-                                fontWeight: FontWeight.bold),
-                          ))
-                    ]),
-                    Column(children: [
-                      Container(
-                        margin: EdgeInsets.fromLTRB(10, 200, 0, 0),
-                        child: Text(
-                          "Suhu Dalam Reamor",
-                          style: TextStyle(color: Colors.black, fontSize: 15),
-                        ),
-                      ),
-                      Container(
-                        margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
-                        child: Text(
-                          "$reamur",
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 30,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      )
-                    ])
-                  ]),
-              Flexible(
-                child: Container(
-                  padding: EdgeInsets.fromLTRB(0, 340, 0, 0),
-                  width: 380.0,
-                  height: 380.0,
-                  child: RaisedButton(
-                      color: Colors.blue[400],
-                      elevation: 6.0,
-                      child: Text(
-                        "Konversi suhu",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 18.0,
-                        ),
-                      ),
-                      onPressed: () {}),
-                ),
-              ),
             ],
           ),
         ),
