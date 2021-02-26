@@ -92,6 +92,24 @@ class _MyAppState extends State<MyApp> {
                       )
                     ])
                   ]),
+              Flexible(
+                child: Container(
+                  padding: EdgeInsets.fromLTRB(0, 340, 0, 0),
+                  width: 380.0,
+                  height: 380.0,
+                  child: RaisedButton(
+                      color: Colors.blue[400],
+                      elevation: 6.0,
+                      child: Text(
+                        "Konversi suhu",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18.0,
+                        ),
+                      ),
+                      onPressed: () {}),
+                ),
+              ),
             ],
           ),
         ),
