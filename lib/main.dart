@@ -74,7 +74,11 @@ class _MyAppState extends State<MyApp> {
                   );
                 }).toList(),
                 value: _newValue,
-                onChanged: (String changeValue) {},
+                onChanged: (String changeValue) {
+                  setState(() {
+                    _newValue = changeValue;
+                  });
+                },
               ),
               Result(
                 kelvin: kelvin,
