@@ -23,19 +23,16 @@ class _MyAppState extends State<MyApp> {
 
   double inputSuhu = 0;
 
-  double reamur = 0;
+  // double reamur = 0;
 
-  double kelvin = 0;
+  // double kelvin = 0;
 
   double fahrenheit = 0;
 
   // ignore: unused_field
-  double _inputUser = 0;
-  // ignore: unused_field
   double _kelvin = 0;
   // ignore: unused_field
   double _reamur = 0;
-  final inputController = TextEditingController();
   // ignore: unused_field
   String _newValue = "Kelvin";
   // ignore: unused_field
@@ -45,8 +42,10 @@ class _MyAppState extends State<MyApp> {
 
   void perhitungan() => setState(() {
         inputSuhu = double.parse(SuhuController.text);
-        reamur = (4 / 5) * inputSuhu;
-        kelvin = inputSuhu + 273;
+        if (_newValue == "Kelvin")
+          _result = inputSuhu + 273;
+        else
+          _result = (4 / 5) * inputSuhu;
       });
 
   @override
@@ -77,12 +76,16 @@ class _MyAppState extends State<MyApp> {
                 onChanged: (String changeValue) {
                   setState(() {
                     _newValue = changeValue;
+                    perhitungan();
                   });
                 },
               ),
+
+              // ignore: missing_required_param
               Result(
-                kelvin: kelvin,
-                reamur: reamur,
+                // kelvin: kelvin,
+                // reamur: reamur,
+                result: _result,
               ),
               Flexible(
                 child: Container(
