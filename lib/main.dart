@@ -29,6 +29,8 @@ class _MyAppState extends State<MyApp> {
 
   double fahrenheit = 0;
 
+  var listItem = ["Kelvin", "Reamur"];
+
   void perhitungan() => setState(() {
         inputSuhu = double.parse(SuhuController.text);
         reamur = (4 / 5) * inputSuhu;
@@ -52,6 +54,16 @@ class _MyAppState extends State<MyApp> {
           child: Column(
             children: [
               Input(SuhuController: SuhuController),
+              DropdownButton(
+                items: [
+                  DropdownMenuItem(
+                      value: "Kelvin", child: Container(child: Text("Kelvin"))),
+                  DropdownMenuItem(
+                      value: "Reamur", child: Container(child: Text("Reamur"))),
+                ],
+                value: null,
+                onChanged: (String changeValue) {},
+              ),
               Result(
                 kelvin: kelvin,
                 reamur: reamur,

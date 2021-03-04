@@ -14,16 +14,16 @@ class Input extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-                controller: SuhuController,
-                cursorColor: Colors.black,
-                keyboardType: TextInputType.number,
-                inputFormatters: <TextInputFormatter>[
-                  FilteringTextInputFormatter.digitsOnly
-                ],
-                decoration: new InputDecoration(
-                    contentPadding: EdgeInsets.only(
-                        left: 15, bottom: 11, top: 11, right: 15),
-                    hintText: "Masukkan Suhu dalam Celcius"),
+      controller: SuhuController,
+      cursorColor: Colors.black,
+      keyboardType: TextInputType.number,
+      inputFormatters: <TextInputFormatter>[
+        FilteringTextInputFormatter.digitsOnly
+      ],
+      decoration: new InputDecoration(
+          contentPadding:
+              EdgeInsets.only(left: 15, bottom: 11, top: 11, right: 15),
+          hintText: "Masukkan Suhu dalam Celcius"),
     );
   }
 }
