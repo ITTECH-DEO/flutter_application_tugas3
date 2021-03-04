@@ -7,6 +7,10 @@ import 'input.dart';
 import 'convert.dart';
 // ignore: unused_import
 import 'result.dart';
+// ignore: unused_import
+import 'Buttondropdown.dart';
+// ignore: unused_import
+import 'Riwayat.dart';
 
 void main() {
   runApp(MyApp());
@@ -38,15 +42,29 @@ class _MyAppState extends State<MyApp> {
   // ignore: unused_field
   double _result = 0;
 
+  List<String> listViewItem = List<String>();
+
   var listItem = ["Kelvin", "Reamur"];
 
-  void perhitungan() => setState(() {
-        inputSuhu = double.parse(SuhuController.text);
-        if (_newValue == "Kelvin")
-          _result = inputSuhu + 273;
-        else
-          _result = (4 / 5) * inputSuhu;
-      });
+  void perhitungan() {
+    setState(() {
+      inputSuhu = double.parse(SuhuController.text);
+      if (_newValue == "Kelvin") {
+        _result = inputSuhu + 273;
+        listViewItem.add("Kelvin : " + _result.toString());
+      } else {
+        _result = (4 / 5) * inputSuhu;
+        listViewItem.add("Reamur : " + _result.toString());
+      }
+    });
+  }
+
+  void dropdownOnChanged(String changeValue) {
+    setState(() {
+      _newValue = changeValue;
+      perhitungan();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -65,21 +83,10 @@ class _MyAppState extends State<MyApp> {
           child: Column(
             children: [
               Input(SuhuController: SuhuController),
-              DropdownButton<String>(
-                items: listItem.map((String value) {
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: Text(value),
-                  );
-                }).toList(),
-                value: _newValue,
-                onChanged: (String changeValue) {
-                  setState(() {
-                    _newValue = changeValue;
-                    perhitungan();
-                  });
-                },
-              ),
+              Buttondropdown(
+                  listItem: listItem,
+                  newValue: _newValue,
+                  dropdownOnChanged: dropdownOnChanged),
 
               // ignore: missing_required_param
               Result(
@@ -91,7 +98,17 @@ class _MyAppState extends State<MyApp> {
                 child: Container(
                   child: Convert(perhitungan: perhitungan),
                 ),
-              )
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 10, bottom: 10),
+                child: Text(
+                  "Riwayat Konversi",
+                  style: TextStyle(fontSize: 20),
+                ),
+              ),
+              Expanded(
+                child: Riwayat(listViewItem: listViewItem),
+              ),
             ],
           ),
         ),

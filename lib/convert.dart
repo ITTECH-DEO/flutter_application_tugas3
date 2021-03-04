@@ -10,9 +10,9 @@ class Convert extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.fromLTRB(0, 340, 0, 0),
+      padding: EdgeInsets.fromLTRB(0, 100, 0, 0),
       width: 380.0,
-      height: 380.0,
+      height: 150.0,
       child: RaisedButton(
           color: Colors.blue[400],
           elevation: 6.0,
