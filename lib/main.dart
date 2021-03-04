@@ -29,6 +29,18 @@ class _MyAppState extends State<MyApp> {
 
   double fahrenheit = 0;
 
+  // ignore: unused_field
+  double _inputUser = 0;
+  // ignore: unused_field
+  double _kelvin = 0;
+  // ignore: unused_field
+  double _reamur = 0;
+  final inputController = TextEditingController();
+  // ignore: unused_field
+  String _newValue = "Kelvin";
+  // ignore: unused_field
+  double _result = 0;
+
   var listItem = ["Kelvin", "Reamur"];
 
   void perhitungan() => setState(() {
@@ -54,14 +66,14 @@ class _MyAppState extends State<MyApp> {
           child: Column(
             children: [
               Input(SuhuController: SuhuController),
-              DropdownButton(
-                items: [
-                  DropdownMenuItem(
-                      value: "Kelvin", child: Container(child: Text("Kelvin"))),
-                  DropdownMenuItem(
-                      value: "Reamur", child: Container(child: Text("Reamur"))),
-                ],
-                value: null,
+              DropdownButton<String>(
+                items: listItem.map((String value) {
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(value),
+                  );
+                }).toList(),
+                value: _newValue,
                 onChanged: (String changeValue) {},
               ),
               Result(
